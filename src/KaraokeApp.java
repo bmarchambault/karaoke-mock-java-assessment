@@ -6,18 +6,19 @@ public class KaraokeApp {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        String userChoice = null;
+        String userChoice = ""; //= null;
 
         Player musicPlayer = new MusicPlayer("victoria"); // can change the voice
         Player lyricsPlayer = new LyricsPlayer("blue"); // can change the color
 
-        Album a = new Album("90s Hits", Arrays.asList(
+        Album album = new Album("90s Hits", Arrays.asList(
            new Song("Every Day is a Winding Road", "Sheryl Crow", Song.parseLyrics("Everyday is a winding road ... I get a little bit closer to feeling fine")),
            new Song("Ready to Go", "Republica", Song.parseLyrics("I'm standing on the rooftops shouting out, Baby, I'm ready to go")),
-           new Song("Airbag", "Radiohead", Song.parseLyrics("In an interstellar burst I am back to save the universe"))
+           new Song("Airbag", "Radiohead", Song.parseLyrics("In an interstellar burst I am back to save the universe")),
+            new Song("Conversations", "Juice World", Song.parseLyrics("The devil on my phone, he want to talk, but i'm not really up for conversations."))
         ));
 
-        runKaraokeMachine(scanner, userChoice, musicPlayer, lyricsPlayer, a);
+        runKaraokeMachine(scanner, userChoice, musicPlayer, lyricsPlayer, album);
 
     }
 
@@ -26,7 +27,7 @@ public class KaraokeApp {
 
         System.out.println("\nWould you like to listen to this album (type 's') or sing karaoke with it (type 'k')? [s/k]");
         do {
-            userChoice = scanner.next();
+           userChoice = scanner.next();
             if (!userChoice.equalsIgnoreCase("k") && !userChoice.equalsIgnoreCase("s")) {
                 System.out.println("Must select either 's' or 'k'");
             }

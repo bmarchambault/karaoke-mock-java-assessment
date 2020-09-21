@@ -30,7 +30,7 @@ public class MusicPlayer extends Player {
     public void play(Song song){
         Runtime r = Runtime.getRuntime();
         try{
-            r.exec("say" + "now playing..." + song.getTitle() + " by" + song.getArtist());
+            r.exec("say " + "now playing... " + song.getTitle() + " by " + song.getArtist());
             sleep(INTRO_PAUSE);
             for (String lyric : song.getLyrics()) {
                 if (voice.isEmpty()) {
